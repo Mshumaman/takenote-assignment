@@ -9,6 +9,7 @@ export default class SettingsSection extends BasePage {
     private closeSettingsButton = this.page.locator('.close-button');
     private sortBySelect = this.page.getByTestId('sort-by-dropdown');
     private importBackupButton = '[aria-label="Import backup"]';
+    private settingsPopup = this.page.locator('.settings-modal');
 
 
     constructor(protected page: Page) {
@@ -28,7 +29,7 @@ export default class SettingsSection extends BasePage {
     }
 
     public async selectTab(tab: SettingsTabs) {
-        await this.page.getByRole('button', {name: tab}).click()
+        await this.settingsPopup.getByRole('button', {name: tab}).click()
     }
 
     public async selectSortByOption(option: SortByOptions) {

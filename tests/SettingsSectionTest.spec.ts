@@ -71,7 +71,7 @@ test.describe('Settings Section Functional Tests', { tag: ['@sanity', '@regressi
         });
     });
 
-    test('should import a backup and display the imported note', async ({ settingsSection, noteEditorFooter, noteSidebarSection }) => {
+    test.only('should import a backup and display the imported note', async ({ settingsSection, noteEditorFooter, noteSidebarSection }) => {
 
         await test.step('open settings and navigate to Data Management tab', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);

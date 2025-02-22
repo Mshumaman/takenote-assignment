@@ -34,15 +34,11 @@ export default class NoteSidebarSection extends BasePage {
     public async validateOrderOfNotes(notes: string[]) {
         const categoriesLength = notes.length;
         await this.page.locator(this.notesTruncateText).nth(categoriesLength - 1).waitFor()
-        const categoryElements = await this.page.locator(this.notesTruncateText).all();
-
-        const extractedNotes = await Promise.all(
-            categoryElements.map(async (element) => {
-                const text = await element.textContent();
-                return text ? text.trim() : '';
-            })
-        );
-        expect(extractedNotes).toEqual(notes);
+        await expect.poll(async () => {
+            const categoryElements = await this.page.locator(this.notesTruncateText).all();
+            return Promise.all(
+                categoryElements.map(async (element) => (await element.textContent() || '').trim())
+            );
+        }).toEqual(notes);
     }
-
 }

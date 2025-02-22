@@ -13,6 +13,7 @@ export default class AppSidebarSection extends BasePage {
     private noteList = this.page.locator('[data-testid*="note-list-item-"]')
     private categoryList = this.page.locator('[class="category-list-name"]');
     private categories = this.page.getByTestId('category-list-div');
+    private appSidebar = this.page.locator('.app-sidebar');
 
 
     constructor(protected page: Page) {
@@ -21,7 +22,7 @@ export default class AppSidebarSection extends BasePage {
 
 
     public async chooseSection(option: SidebarSectionsEnum) {
-        await this.page.getByTestId(option).click();
+        await this.appSidebar.getByTestId(option).click();
     }
 
     public async addCategory(categoryName: string) {
