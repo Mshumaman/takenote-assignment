@@ -9,7 +9,7 @@ yarn-error.log*
 .pnp.js
 
 .vscode/*
-.idea
+.idea/
 .DS_Store
 # Playwright
 node_modules/
