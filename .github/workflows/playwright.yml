@@ -39,7 +39,7 @@ jobs:
       - name: Execute load tests
         uses: artilleryio/action-cli@v1
         with:
-          command: artillery run load-tests/artillery.yml --record --key a9_LMjFKoBpCu68CfOeIX_qLjQfonZbq1ws
+          command: run load-tests/artillery.yml --record --key a9_LMjFKoBpCu68CfOeIX_qLjQfonZbq1ws
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         if: always()
