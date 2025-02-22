@@ -36,7 +36,7 @@ test.describe('Basic add edit and delete scenario', {tag: '@uiAutomation'}, () =
             await noteEditorSection.typeTextInEditor(editedNote);
             await noteEditorSection.validateNoteContent(editedNote);
         });
-        await test.step('Delete content and validate note moved to trash ', async () => {
+        await test.step('Delete content and validate note moved to trash', async () => {
             await noteSidebarSection.searchAndSelectNote(editedNote);
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.DELETE);
             await appSidebarSection.navigateTo(SidebarSectionsEnum.TRASH);

@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
     "oneBrowserHeaded": "npx playwright test --workers=1 --headed"
   },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.4",
+    "eslint-plugin-playwright": "^2.2.0",
     "typescript": "^5.5.3"
   },
   "private": true,

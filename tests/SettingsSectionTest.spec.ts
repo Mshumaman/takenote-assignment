@@ -61,7 +61,7 @@ test.describe('Test suite of settings section', {tag: '@uiAutomation'}, () => {
         });
     });
 
-    test('Test sort by functionality in settings', async ({settingsSection, noteEditorFooter, noteSidebarSection}) => {
+    test('Sort by functionality in settings', async ({settingsSection, noteEditorFooter, noteSidebarSection}) => {
 
         await test.step('Validate order of notes before changing the sorting in settings', async () => {
             await noteSidebarSection.validateOrderOfNotes(notes);
