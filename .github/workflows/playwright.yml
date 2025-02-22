@@ -26,7 +26,6 @@ jobs:
         path: playwright-report/
         retention-days: 30
   artillery_load_test_job:
-    name: TakeNote Load Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -56,4 +55,3 @@ jobs:
         with:
           name: artillery-report
           path: Artillery/test-run-report.json
-  

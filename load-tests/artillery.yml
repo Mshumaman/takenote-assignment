@@ -10,6 +10,9 @@ config:
       extendedMetrics: true
       launchOptions:
         headless: true
+      traceOptions:
+        enabled: true
+        maxConcurrentRecordings: 5
   processor: "./NoteCreationLoadTest.ts"
 scenarios:
   - engine: playwright
