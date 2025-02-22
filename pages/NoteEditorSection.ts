@@ -1,10 +1,7 @@
 import BasePage from "./BasePage";
 import {Page} from "@playwright/test";
+import {EditorMode} from "../types/UiEnums";
 
-export enum EditorMode {
-    EDIT = 'Edit',
-    PREVIEW = 'Preview'
-}
 
 export class NoteEditorSection extends BasePage {
     private newNoteButton = this.page.locator('[data-testid="sidebar-action-create-new-note"]');

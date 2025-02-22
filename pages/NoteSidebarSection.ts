@@ -1,12 +1,7 @@
 import BasePage from "./BasePage";
 import {expect, Page} from "@playwright/test";
+import {NoteContextMenuActions} from "../types/UiEnums";
 
-export enum NoteContextMenuActions {
-    COPY_REFERENCE = 'copy-reference-to-note',
-    DOWNLOAD = 'note-option-download',
-    MOVE_TO_TRASH = 'note-option-trash',
-    FAVORITE = 'note-option-favorite',
-}
 
 export default class NoteSidebarSection extends BasePage {
     private noteSearchBox = this.page.getByTestId('note-search');

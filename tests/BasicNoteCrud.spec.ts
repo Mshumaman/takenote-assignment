@@ -1,9 +1,10 @@
-import {EditorMode} from "../pages/NoteEditorSection";
+
 import {FooterButtonsSelectors} from "../pages/NoteEditorFooter";
-import {SidebarSectionsEnum} from "../pages/AppSidebarSection";
+
 import {testData} from "../helpers/TestData";
 import {test} from '../fixtures/Fixtures';
-import {NoteContextMenuActions} from "../pages/NoteSidebarSection";
+import {EditorMode, NoteContextMenuActions, SidebarSectionsEnum} from "../types/UiEnums";
+
 
 test.describe('Note CRUD operations', { tag: ['@sanity', '@regression'] }, () => {
     const editedNote = testData.editedNoteName;

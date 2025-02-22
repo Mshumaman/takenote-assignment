@@ -7,8 +7,8 @@ export default [
         rules: {
             ...playwright.configs['flat/recommended'].rules,
             'playwright/no-focused-test': 'error',
-            'playwright/expect-expect': 'off',  // Turn off the expect-expect rule
-            'playwright/valid-title': ['error', { disallowedWords: [] }],  // Adjust as needed
+            'playwright/expect-expect': 'off',
+            'playwright/valid-title': ['error', { disallowedWords: [] }],
         },
     },
 ]

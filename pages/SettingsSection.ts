@@ -1,19 +1,7 @@
 import BasePage from "./BasePage";
 import {Page} from "@playwright/test";
+import {SettingsTabs, SortByOptions} from "../types/UiEnums";
 
-export enum SettingsTabs {
-    SETTINGS = 'Settings',
-    PREFERENCES = 'Preferences',
-    KEYBOARD_SHORTCUTS = 'Keyboard shortcuts',
-    DATA_MANAGEMENTS = 'Data management',
-    ABOUT_TAKENOTE = 'About TakeNote'
-}
-
-export enum SortByOptions {
-    TITLE = 'Title',
-    DATE_CREATED = 'Date Created',
-    LAST_UPDATED = 'Last Updated'
-}
 
 export default class SettingsSection extends BasePage {
     private darkModeToggle = this.page.getByTestId('dark-mode-toggle');

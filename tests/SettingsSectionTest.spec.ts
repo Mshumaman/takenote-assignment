@@ -1,7 +1,7 @@
 import {test} from "../fixtures/Fixtures";
 import {FooterButtonsSelectors} from "../pages/NoteEditorFooter";
-import {SettingsTabs, SortByOptions} from "../pages/SettingsSection";
 import {testData} from "../helpers/TestData";
+import {SettingsTabs, SortByOptions} from "../types/UiEnums";
 
 test.use({storageState: './assets/predefined-test-data.json'});
 test.describe('Settings Section Functional Tests', { tag: ['@sanity', '@regression'] }, () => {

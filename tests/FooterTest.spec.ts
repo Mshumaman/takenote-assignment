@@ -1,5 +1,4 @@
 import {test} from "../fixtures/Fixtures";
-
 import {FooterButtonsSelectors} from "../pages/NoteEditorFooter";
 import {testData} from "../helpers/TestData";
 

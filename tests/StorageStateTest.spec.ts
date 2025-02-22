@@ -1,6 +1,6 @@
 import {test} from "../fixtures/Fixtures";
-import {SidebarSectionsEnum} from "../pages/AppSidebarSection";
 import {testData} from "../helpers/TestData";
+import {SidebarSectionsEnum} from "../types/UiEnums";
 
 test.use({storageState: './assets/predefined-test-data.json'});
 test.describe('Predefined Data Verification with StorageState', { tag: ['@sanity', '@regression'] }, () => {

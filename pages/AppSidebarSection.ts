@@ -1,13 +1,7 @@
 import BasePage from "./BasePage";
 import {expect, Page} from "@playwright/test";
+import {SidebarSectionsEnum} from "../types/UiEnums";
 
-
-export enum SidebarSectionsEnum {
-    SCRATCHPAD = 'scratchpad',
-    NOTES = 'notes',
-    FAVORITES = 'favorites',
-    TRASH = 'trash'
-}
 
 export default class AppSidebarSection extends BasePage {
 
