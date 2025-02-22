@@ -48,10 +48,3 @@ jobs:
         run: artillery run load-tests/artillery.yml --record
         env:
           ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_API_KEY }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: artillery-report
-          path: Artillery/test-run-report.json
