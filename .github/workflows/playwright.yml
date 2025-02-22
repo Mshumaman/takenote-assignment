@@ -36,12 +36,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
       - name: Execute load tests
         uses: artilleryio/action-cli@v1
         with:
-          command: |
-            npx playwright install --with-deps
-            run load-tests/artillery.yml --record --key a9_LMjFKoBpCu68CfOeIX_qLjQfonZbq1ws
+          command: run load-tests/artillery.yml --record --key a9_LMjFKoBpCu68CfOeIX_qLjQfonZbq1ws
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         if: always()
