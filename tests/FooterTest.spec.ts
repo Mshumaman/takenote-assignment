@@ -6,8 +6,8 @@ test.describe('Footer Buttons Functionality Tests', { tag: ['@sanity', '@regress
 
     const fileName = testData.fileName;
 
-    test.beforeEach(async ({noteEditorFooter}) => {
-        await noteEditorFooter.loadApplication();
+    test.beforeEach(async ({basePage}) => {
+        await basePage.loadApplication();
 
     });
 
@@ -25,6 +25,13 @@ test.describe('Footer Buttons Functionality Tests', { tag: ['@sanity', '@regress
     test('should download note and validate file', async ({ noteEditorFooter }) => {
         await test.step('download note and verify file download', async () => {
             await noteEditorFooter.downloadNoteAndValidate(fileName);
+        });
+    });
+
+    test('should display sync timestamp upon note synchronization', async ({ noteEditorFooter }) => {
+        await test.step('click sync button and verify sync timestamp displayed', async () => {
+            await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SYNC);
+            await noteEditorFooter.validateSyncTimestampDisplayed();
         });
     });
 });

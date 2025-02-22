@@ -19,5 +19,7 @@ This is an example note with formatting.
     editedNoteName: "Edited content",
     editedCategoryName: "Edited Category",
     noteTitle: "New Note",
+    noteTestTitle: "New Test Note",
+    defaultWelcomeNoteTitle: "Welcome to Takenote!",
     fileName: 'Welcome to Takenote!.md',
 };

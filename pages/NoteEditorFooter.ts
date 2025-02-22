@@ -21,6 +21,7 @@ export default class NoteEditorFooter extends BasePage {
     private darkMode = this.page.locator('.dark')
     private previewModeLayout = this.page.locator('[class="previewer previewer_direction-ltr"]')
     private editorModeLayout = this.page.locator('[class="react-codemirror2 editor mousetrap"]')
+    private previewModeClass = this.page.locator('[data-testid="preview-mode"] .sr-only')
 
 
     constructor(protected page: Page) {
@@ -64,5 +65,13 @@ export default class NoteEditorFooter extends BasePage {
         if (mode == FooterButtonsSelectors.EDIT_NOTE) {
             await this.validateItemCount(this.editorModeLayout, 1);
         }
+    }
+
+    public async validatePreviewAndEditorModeByText(mode: FooterButtonsSelectors) {
+        await expect(this.previewModeClass).toContainText(mode)
+    }
+
+    public async validateSyncTimestampDisplayed() {
+        await expect(this.lastSyncDate).toBeAttached();
     }
 }

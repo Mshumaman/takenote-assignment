@@ -87,4 +87,33 @@ test.describe('Settings Section Functional Tests', { tag: ['@sanity', '@regressi
             await noteSidebarSection.validateNoteInList(importedNoteTitle);
         });
     });
+
+    test.fixme('should verify theme change from settings change also in DOM', {
+        annotation: [
+            {
+                type: 'details',
+                description: 'Preview and Edit mode icons are not updating when the theme is changed from settings'
+            },
+            {
+                type: 'link',
+                description: 'https://jam.dev/c/3644baff-8cd2-4da0-b40d-ff8208ea44ab'
+            }
+        ]
+    }, async ({settingsSection, noteEditorFooter}) => {
+
+        await test.step('switch editor modes using footer buttons and verify icon update', async () => {
+            await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.PREVIEW_MODE);
+            await noteEditorFooter.validatePreviewAndEditorModeByText(FooterButtonsSelectors.EDIT_NOTE);
+            await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.EDIT_NOTE);
+            await noteEditorFooter.validatePreviewAndEditorModeByText(FooterButtonsSelectors.PREVIEW_MODE);
+        });
+
+        await test.step('toggle editor mode using settings toggle and verify icon update', async () => {
+            await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);
+            await settingsSection.toggleMarkdownPreview();
+            await noteEditorFooter.validatePreviewAndEditorModeByText(FooterButtonsSelectors.EDIT_NOTE);
+            await settingsSection.toggleMarkdownPreview();
+            await noteEditorFooter.validatePreviewAndEditorModeByText(FooterButtonsSelectors.PREVIEW_MODE);
+        });
+    });
 });

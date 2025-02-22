@@ -27,10 +27,10 @@ export default defineConfig({
             use: {...devices['Desktop Chrome'], channel: 'chrome', viewport: {width: 1440, height: 800}},
 
         },
-        // {
-        //   name: 'Firefox',
-        //   use: { ...devices['Desktop Firefox'] , viewport: {width: 1440, height: 800}},
-        // },
+        {
+          name: 'Firefox',
+          use: { ...devices['Desktop Firefox'] , viewport: {width: 1440, height: 800}},
+        },
 
     ],
 

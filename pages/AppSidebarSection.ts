@@ -20,16 +20,16 @@ export default class AppSidebarSection extends BasePage {
         super(page);
     }
 
-
     public async chooseSection(option: SidebarSectionsEnum) {
         await this.appSidebar.getByTestId(option).click();
     }
 
-    public async addCategory(categoryName: string) {
-        await this.addCategoryButton.click();
+    public async addCategory(categoryName: string, shouldClick: boolean = true) {
+        if (shouldClick) {
+            await this.addCategoryButton.click();
+        }
         await this.newCategoryTextField.fill(categoryName);
         await this.page.keyboard.press('Enter');
-
     }
 
     public async editCategory(oldCategoryName: string, newCategoryName: string) {
