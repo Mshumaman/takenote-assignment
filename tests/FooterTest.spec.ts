@@ -3,7 +3,7 @@ import {test} from "../fixtures/Fixtures";
 import {FooterButtonsSelectors} from "../pages/NoteEditorFooter";
 import {testData} from "../helpers/TestData";
 
-test.describe('Functional tests of footers buttons', {tag: '@uiAutomation'}, () => {
+test.describe('Footer Buttons Functionality Tests', { tag: ['@sanity', '@regression'] }, () => {
 
     const fileName = testData.fileName;
 
@@ -12,17 +12,19 @@ test.describe('Functional tests of footers buttons', {tag: '@uiAutomation'}, () 
 
     });
 
-    test('Change Theme to dark mode and validate', async ({noteEditorFooter}) => {
-        await test.step('change to dark mode and validate by class', async () => {
+    test('should switch to dark mode and validate theme', async ({ noteEditorFooter }) => {
+        await test.step('switch to dark mode and verify using CSS class', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.THEMES);
             await noteEditorFooter.validateTheme(true);
         });
-        await test.step('Validate dark mode be screenshot', async () => {
+
+        await test.step('verify dark mode via screenshot comparison', async () => {
             await noteEditorFooter.validateDarkThemeByScreenshot();
         });
     });
-    test('Download note and validate', async ({noteEditorFooter}) => {
-        await test.step('Validate dark mode be screenshot', async () => {
+
+    test('should download note and validate file', async ({ noteEditorFooter }) => {
+        await test.step('download note and verify file download', async () => {
             await noteEditorFooter.downloadNoteAndValidate(fileName);
         });
     });

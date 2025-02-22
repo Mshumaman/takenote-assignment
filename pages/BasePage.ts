@@ -6,11 +6,8 @@ export default class BasePage {
     }
 
     public async loadApplication(url: string = "https://takenote.dev/app") {
-        await test.step('Navigate to app and wait for load', async () => {
             await this.page.goto(url);
             await this.page.waitForLoadState('networkidle');
-        });
-
     }
 
     public async clearFieldAndTypeText(locator: Locator, text: string) {

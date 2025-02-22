@@ -4,7 +4,7 @@ import {SettingsTabs, SortByOptions} from "../pages/SettingsSection";
 import {testData} from "../helpers/TestData";
 
 test.use({storageState: './assets/predefined-test-data.json'});
-test.describe('Test suite of settings section', {tag: '@uiAutomation'}, () => {
+test.describe('Settings Section Functional Tests', { tag: ['@sanity', '@regression'] }, () => {
 
     const notes = testData.notes
     const importedNoteTitle = testData.importedNoteTitle;
@@ -17,40 +17,40 @@ test.describe('Test suite of settings section', {tag: '@uiAutomation'}, () => {
     });
 
 
-    test('Change to dark mode from settings and validate', async ({settingsSection, noteEditorFooter}) => {
+    test('should toggle theme via settings and validate changes', async ({ settingsSection, noteEditorFooter }) => {
 
-        await test.step('Change theme to light mode validate', async () => {
+        await test.step('switch to light mode and verify theme update', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);
             await settingsSection.toggleDarkMode();
             await noteEditorFooter.validateTheme(false);
         });
 
-        await test.step('Change theme to dark mode toggle and validate', async () => {
+        await test.step('toggle back to dark mode and confirm change', async () => {
             await settingsSection.toggleDarkMode();
             await noteEditorFooter.validateTheme(true);
         });
     });
 
-    test('Markdown preview setting test', async ({settingsSection, noteEditorFooter}) => {
+    test('should update editor mode using markdown preview setting', async ({ settingsSection, noteEditorFooter }) => {
 
-        await test.step('From footer: Change note editor to preview mode and validate', async () => {
+        await test.step('set editor to preview mode via footer and verify', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.PREVIEW_MODE);
             await noteEditorFooter.validateEditorMode(FooterButtonsSelectors.PREVIEW_MODE);
         });
 
-        await test.step('From footer: Change note editor to Edit Note mode and validate', async () => {
+        await test.step('set editor to edit mode via footer and verify', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.EDIT_NOTE);
             await noteEditorFooter.validateEditorMode(FooterButtonsSelectors.EDIT_NOTE);
         });
 
-        await test.step('From settings: Change note editor to Preview mode and validate', async () => {
+        await test.step('open settings, enable markdown preview, and verify preview mode', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);
             await settingsSection.toggleMarkdownPreview();
             await settingsSection.closeSettings();
             await noteEditorFooter.validateEditorMode(FooterButtonsSelectors.PREVIEW_MODE);
         });
 
-        await test.step('From settings: Change note editor to Edit Note mode and validate', async () => {
+        await test.step('open settings, disable markdown preview, and verify edit mode', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);
             await settingsSection.toggleMarkdownPreview();
             await settingsSection.closeSettings();
@@ -58,32 +58,32 @@ test.describe('Test suite of settings section', {tag: '@uiAutomation'}, () => {
         });
     });
 
-    test('Sort by functionality in settings', async ({settingsSection, noteEditorFooter, noteSidebarSection}) => {
+    test('should sort notes by title using settings', async ({ settingsSection, noteEditorFooter, noteSidebarSection }) => {
 
-        await test.step('Validate order of notes before changing the sorting in settings', async () => {
+        await test.step('verify initial order of notes', async () => {
             await noteSidebarSection.validateOrderOfNotes(notes);
         });
 
-        await test.step('Open settings, sort by title and validate', async () => {
+        await test.step('open settings, sort notes by title, and verify new order', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);
             await settingsSection.selectSortByOption(SortByOptions.TITLE);
             await noteSidebarSection.validateOrderOfNotes([notes[0], notes[2], notes[1]]);
         });
     });
 
-    test('Import takeNote backup and validate', async ({settingsSection, noteEditorFooter, noteSidebarSection}) => {
+    test('should import a backup and display the imported note', async ({ settingsSection, noteEditorFooter, noteSidebarSection }) => {
 
-        await test.step('Navigate to settings > Data Managements', async () => {
+        await test.step('open settings and navigate to Data Management tab', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.SETTINGS);
             await settingsSection.selectTab(SettingsTabs.DATA_MANAGEMENTS);
         });
 
-        await test.step('Import TakeNote backup', async () => {
+        await test.step('import backup data and close settings', async () => {
             await settingsSection.importNotes(notesBackupPath);
             await settingsSection.closeSettings();
         });
 
-        await test.step('Validate imported note displayed in list', async () => {
+        await test.step('confirm the imported note is displayed in the list', async () => {
             await noteSidebarSection.validateNoteInList(importedNoteTitle);
         });
     });
