@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ main, master ]
 jobs:
-  test:
+  playwright_tests_job:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -25,3 +25,24 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+  artillery_load_test_job:
+    name: TakeNote Load Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Execute load tests
+        uses: artilleryio/action-cli@v1
+        with:
+          command: artillery run load-tests/artillery.yml --record --key a9_LMjFKoBpCu68CfOeIX_qLjQfonZbq1ws
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: artillery-report
+          path: Artillery/test-run-report.json

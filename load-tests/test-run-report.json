@@ -1,0 +1,260 @@
+{
+  "aggregate": {
+    "counters": {
+      "vusers.created_by_name.0": 11,
+      "vusers.created": 11,
+      "browser.page.codes.200": 33,
+      "browser.http_requests": 33,
+      "browser.page.domcontentloaded": 11,
+      "browser.page.domcontentloaded.https://takenote.dev/app": 11,
+      "vusers.failed": 0,
+      "vusers.completed": 11
+    },
+    "rates": {},
+    "firstCounterAt": 1740210867573,
+    "firstHistogramAt": 1740210868547,
+    "lastCounterAt": 1740210869850,
+    "lastHistogramAt": 1740210869850,
+    "firstMetricAt": 1740210867573,
+    "lastMetricAt": 1740210869850,
+    "period": 1740210860000,
+    "summaries": {
+      "browser.page.dominteractive": {
+        "min": 271,
+        "max": 532,
+        "count": 11,
+        "mean": 357.3,
+        "p50": 320.6,
+        "median": 320.6,
+        "p75": 376.2,
+        "p90": 450.4,
+        "p95": 450.4,
+        "p99": 450.4,
+        "p999": 450.4
+      },
+      "browser.page.dominteractive.https://takenote.dev/app": {
+        "min": 271,
+        "max": 532,
+        "count": 11,
+        "mean": 357.3,
+        "p50": 320.6,
+        "median": 320.6,
+        "p75": 376.2,
+        "p90": 450.4,
+        "p95": 450.4,
+        "p99": 450.4,
+        "p999": 450.4
+      },
+      "browser.memory_used_mb": {
+        "min": 38.6,
+        "max": 38.7,
+        "count": 11,
+        "mean": 38.7,
+        "p50": 38.5,
+        "median": 38.5,
+        "p75": 38.5,
+        "p90": 38.5,
+        "p95": 38.5,
+        "p99": 38.5,
+        "p999": 38.5
+      },
+      "vusers.session_length": {
+        "min": 1463,
+        "max": 1874.1,
+        "count": 11,
+        "mean": 1701.7,
+        "p50": 1755,
+        "median": 1755,
+        "p75": 1755,
+        "p90": 1826.6,
+        "p95": 1826.6,
+        "p99": 1826.6,
+        "p999": 1826.6
+      }
+    },
+    "histograms": {
+      "browser.page.dominteractive": {
+        "min": 271,
+        "max": 532,
+        "count": 11,
+        "mean": 357.3,
+        "p50": 320.6,
+        "median": 320.6,
+        "p75": 376.2,
+        "p90": 450.4,
+        "p95": 450.4,
+        "p99": 450.4,
+        "p999": 450.4
+      },
+      "browser.page.dominteractive.https://takenote.dev/app": {
+        "min": 271,
+        "max": 532,
+        "count": 11,
+        "mean": 357.3,
+        "p50": 320.6,
+        "median": 320.6,
+        "p75": 376.2,
+        "p90": 450.4,
+        "p95": 450.4,
+        "p99": 450.4,
+        "p999": 450.4
+      },
+      "browser.memory_used_mb": {
+        "min": 38.6,
+        "max": 38.7,
+        "count": 11,
+        "mean": 38.7,
+        "p50": 38.5,
+        "median": 38.5,
+        "p75": 38.5,
+        "p90": 38.5,
+        "p95": 38.5,
+        "p99": 38.5,
+        "p999": 38.5
+      },
+      "vusers.session_length": {
+        "min": 1463,
+        "max": 1874.1,
+        "count": 11,
+        "mean": 1701.7,
+        "p50": 1755,
+        "median": 1755,
+        "p75": 1755,
+        "p90": 1826.6,
+        "p95": 1826.6,
+        "p99": 1826.6,
+        "p999": 1826.6
+      }
+    }
+  },
+  "intermediate": [
+    {
+      "counters": {
+        "vusers.created_by_name.0": 11,
+        "vusers.created": 11,
+        "browser.page.codes.200": 33,
+        "browser.http_requests": 33,
+        "browser.page.domcontentloaded": 11,
+        "browser.page.domcontentloaded.https://takenote.dev/app": 11,
+        "vusers.failed": 0,
+        "vusers.completed": 11
+      },
+      "rates": {},
+      "firstCounterAt": 1740210867573,
+      "firstHistogramAt": 1740210868547,
+      "lastCounterAt": 1740210869850,
+      "lastHistogramAt": 1740210869850,
+      "firstMetricAt": 1740210867573,
+      "lastMetricAt": 1740210869850,
+      "period": "1740210860000",
+      "summaries": {
+        "browser.page.dominteractive": {
+          "min": 271,
+          "max": 532,
+          "count": 11,
+          "mean": 357.3,
+          "p50": 320.6,
+          "median": 320.6,
+          "p75": 376.2,
+          "p90": 450.4,
+          "p95": 450.4,
+          "p99": 450.4,
+          "p999": 450.4
+        },
+        "browser.page.dominteractive.https://takenote.dev/app": {
+          "min": 271,
+          "max": 532,
+          "count": 11,
+          "mean": 357.3,
+          "p50": 320.6,
+          "median": 320.6,
+          "p75": 376.2,
+          "p90": 450.4,
+          "p95": 450.4,
+          "p99": 450.4,
+          "p999": 450.4
+        },
+        "browser.memory_used_mb": {
+          "min": 38.6,
+          "max": 38.7,
+          "count": 11,
+          "mean": 38.7,
+          "p50": 38.5,
+          "median": 38.5,
+          "p75": 38.5,
+          "p90": 38.5,
+          "p95": 38.5,
+          "p99": 38.5,
+          "p999": 38.5
+        },
+        "vusers.session_length": {
+          "min": 1463,
+          "max": 1874.1,
+          "count": 11,
+          "mean": 1701.7,
+          "p50": 1755,
+          "median": 1755,
+          "p75": 1755,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      },
+      "histograms": {
+        "browser.page.dominteractive": {
+          "min": 271,
+          "max": 532,
+          "count": 11,
+          "mean": 357.3,
+          "p50": 320.6,
+          "median": 320.6,
+          "p75": 376.2,
+          "p90": 450.4,
+          "p95": 450.4,
+          "p99": 450.4,
+          "p999": 450.4
+        },
+        "browser.page.dominteractive.https://takenote.dev/app": {
+          "min": 271,
+          "max": 532,
+          "count": 11,
+          "mean": 357.3,
+          "p50": 320.6,
+          "median": 320.6,
+          "p75": 376.2,
+          "p90": 450.4,
+          "p95": 450.4,
+          "p99": 450.4,
+          "p999": 450.4
+        },
+        "browser.memory_used_mb": {
+          "min": 38.6,
+          "max": 38.7,
+          "count": 11,
+          "mean": 38.7,
+          "p50": 38.5,
+          "median": 38.5,
+          "p75": 38.5,
+          "p90": 38.5,
+          "p95": 38.5,
+          "p99": 38.5,
+          "p999": 38.5
+        },
+        "vusers.session_length": {
+          "min": 1463,
+          "max": 1874.1,
+          "count": 11,
+          "mean": 1701.7,
+          "p50": 1755,
+          "median": 1755,
+          "p75": 1755,
+          "p90": 1826.6,
+          "p95": 1826.6,
+          "p99": 1826.6,
+          "p999": 1826.6
+        }
+      }
+    }
+  ]
+}

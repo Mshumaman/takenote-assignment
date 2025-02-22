@@ -1,0 +1,16 @@
+config:
+  target: "https://www.artillery.io"
+  phases:
+    - duration: 30
+      arrivalCount: 1
+      rampTo: 10
+      name: Warm up phase
+  engines:
+    playwright:
+      extendedMetrics: true
+      launchOptions:
+        headless: true
+  processor: "./NoteCreationLoadTest.ts"
+scenarios:
+  - engine: playwright
+    testFunction: createAndFavoriteNote
