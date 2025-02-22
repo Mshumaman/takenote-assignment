@@ -74,7 +74,7 @@ The project uses ESLint with Playwright plugin for code quality.
 
 2. Run ESLint:
 ```bash
-npx eslint .
+npx eslint tests/**/*.ts 
 ```
 
 3. Fix auto-fixable issues:
