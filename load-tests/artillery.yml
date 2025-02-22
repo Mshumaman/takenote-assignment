@@ -1,7 +1,7 @@
 config:
   target: "https://www.artillery.io"
   phases:
-    - duration: 30
+    - duration: 90
       arrivalCount: 10
       rampTo: 20
       name: Warm up phase
