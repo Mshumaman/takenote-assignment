@@ -36,11 +36,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
+
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+
+      - name: Install Playwright and Artillery
+        run: |
+          npx playwright install --with-deps
+          npm install -g artillery@latest
+
       - name: Execute load tests
-        uses: artilleryio/action-cli@v1
+        run: artillery run load-tests/artillery.yml --record
+        env:
+          ARTILLERY_CLOUD_API_KEY: ${{ secrets.ARTILLERY_API_KEY }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        if: always()
         with:
-          command: run load-tests/artillery.yml --record --key a9_LMjFKoBpCu68CfOeIX_qLjQfonZbq1ws
+          name: artillery-report
+          path: Artillery/test-run-report.json
+  
