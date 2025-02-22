@@ -25,7 +25,6 @@ export default class BasePage {
 
     }
 
-
     public async selectFromMultipleChoice(element: string, value: string, rightClick: boolean = false) {
         try {
             const options = await this.page.locator(element).all();
@@ -88,6 +87,14 @@ export default class BasePage {
         const normalizedExpectedText = this.normalizeText(expectedText);
 
         expect(normalizedActualText).toBe(normalizedExpectedText);
+    }
+
+    public async uploadFile(uploadButton: string, resourceFileToUpload: string) {
+        const [fileChooser] = await Promise.all([
+            this.page.waitForEvent('filechooser'),
+            this.page.click(uploadButton)
+        ]);
+        await fileChooser.setFiles(resourceFileToUpload);
     }
 
     private normalizeText(text: string): string {

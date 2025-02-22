@@ -18,6 +18,7 @@ export default class AppSidebarSection extends BasePage {
     private deleteCategoryLocator = this.page.getByTestId('category-option-delete-permanently');
     private noteList = this.page.locator('[data-testid*="note-list-item-"]')
     private categoryList = '[class="category-list-name"]';
+    private categories = this.page.getByTestId('category-list-div');
 
 
     public async navigateTo(option: SidebarSectionsEnum) {
@@ -50,6 +51,10 @@ export default class AppSidebarSection extends BasePage {
     public async validateCategoryCount(categoryName: string, expectedCount: number) {
         const categoryCount = await this.page.locator(this.categoryList, {hasText: categoryName}).count();
         expect(categoryCount).toBe(expectedCount);
+    }
+
+    public async selectCategory(categoryName: string) {
+        await this.categories.filter({hasText: categoryName}).click();
     }
 
     public async dragNoteToCategory(noteTitle: string, categoryName: string) {
