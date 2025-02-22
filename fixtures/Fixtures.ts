@@ -7,29 +7,29 @@ import AppSidebarSection from "../pages/AppSidebarSection";
 import SettingsSection from "../pages/SettingsSection";
 
 type Fixtures = {
+    appSidebarSection: AppSidebarSection;
     basePage: BasePage;
-    noteEditorSection: NoteEditorSection;
     noteEditorFooter: NoteEditorFooter;
-    noteSidebarSection: NoteSidebarSection
-    appSidebarSection: AppSidebarSection
-    settingsSection: SettingsSection
+    noteEditorSection: NoteEditorSection;
+    noteSidebarSection: NoteSidebarSection;
+    settingsSection: SettingsSection;
 }
 
 export const test = base.extend<Fixtures>({
+    appSidebarSection: async ({page}, use) => {
+        await use(new AppSidebarSection(page));
+    },
     basePage: async ({page}, use) => {
         await use(new BasePage(page));
-    },
-    noteEditorSection: async ({page}, use) => {
-        await use(new NoteEditorSection(page));
     },
     noteEditorFooter: async ({page}, use) => {
         await use(new NoteEditorFooter(page));
     },
+    noteEditorSection: async ({page}, use) => {
+        await use(new NoteEditorSection(page));
+    },
     noteSidebarSection: async ({page}, use) => {
         await use(new NoteSidebarSection(page));
-    },
-    appSidebarSection: async ({page}, use) => {
-        await use(new AppSidebarSection(page));
     },
     settingsSection: async ({page}, use) => {
         await use(new SettingsSection(page));

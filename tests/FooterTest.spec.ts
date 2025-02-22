@@ -1,13 +1,14 @@
 import {test} from "../fixtures/Fixtures";
 
 import {FooterButtonsSelectors} from "../pages/NoteEditorFooter";
+import {testData} from "../helpers/TestData";
 
 test.describe('Functional tests of footers buttons', {tag: '@uiAutomation'}, () => {
 
-    const fileName = 'Welcome to Takenote!.md'
+    const fileName = testData.fileName;
 
     test.beforeEach(async ({noteEditorFooter}) => {
-        await noteEditorFooter.loadApplication()
+        await noteEditorFooter.loadApplication();
 
     });
 
@@ -17,12 +18,12 @@ test.describe('Functional tests of footers buttons', {tag: '@uiAutomation'}, () 
             await noteEditorFooter.validateTheme(true);
         });
         await test.step('Validate dark mode be screenshot', async () => {
-            await noteEditorFooter.validateDarkThemeByScreenshot()
+            await noteEditorFooter.validateDarkThemeByScreenshot();
         });
     });
     test('Download note and validate', async ({noteEditorFooter}) => {
         await test.step('Validate dark mode be screenshot', async () => {
-            await noteEditorFooter.downloadNoteAndValidate(fileName)
+            await noteEditorFooter.downloadNoteAndValidate(fileName);
         });
     });
 });

@@ -1,15 +1,16 @@
 import {test} from "../fixtures/Fixtures";
 import {faker} from "@faker-js/faker/locale/en";
+import {testData} from "../helpers/TestData";
 
 
 test.describe('Sanity categories test', {tag: '@uiAutomation'}, () => {
 
     let randomCategoryList = [`${faker.commerce.department()}`, `${faker.commerce.department()}`, `${faker.commerce.department()}`];
-    const editedCategoryName = `Edited Category`;
-    const noteTitle = `New Note`;
+    const editedCategoryName = testData.editedCategoryName;
+    const noteTitle = testData.noteTitle;
 
     test.beforeEach(async ({appSidebarSection}) => {
-        await appSidebarSection.loadApplication()
+        await appSidebarSection.loadApplication();
 
         await test.step('Add category and validate', async () => {
             await appSidebarSection.addCategory(randomCategoryList[0]);
@@ -38,11 +39,7 @@ test.describe('Sanity categories test', {tag: '@uiAutomation'}, () => {
             await appSidebarSection.validateCategoryCount(randomCategoryList[0], 1);
         });
     });
-    test('Add note to category by drag and drop', async ({
-                                                             appSidebarSection,
-                                                             noteEditorSection,
-                                                             noteSidebarSection
-                                                         }) => {
+    test('Add note to category by drag and drop', async ({appSidebarSection, noteEditorSection, noteSidebarSection}) => {
 
         await test.step('Create new note', async () => {
             await noteEditorSection.createNewNote(noteTitle);

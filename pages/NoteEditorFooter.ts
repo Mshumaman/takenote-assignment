@@ -26,7 +26,7 @@ export default class NoteEditorFooter extends BasePage {
     constructor(protected page: Page) {
         super(page);
     }
-    
+
     public async selectOptionFromFooter(option: FooterButtonsSelectors) {
         await this.selectFromMultipleChoice(this.footerButton, option);
     }
