@@ -1,5 +1,5 @@
 import BasePage from "./BasePage";
-import {expect} from "@playwright/test";
+import {expect, Page} from "@playwright/test";
 
 export enum NoteContextMenuActions {
     COPY_REFERENCE = 'copy-reference-to-note',
@@ -12,6 +12,10 @@ export default class NoteSidebarSection extends BasePage {
     private noteSearchBox = this.page.getByTestId('note-search');
     private noteTitles = '[data-testid*="note-title-"]'
     private notesTruncateText = '[class="truncate-text"]'
+
+    constructor(protected page: Page) {
+        super(page);
+    }
 
     public async searchAndSelectNote(noteTitle: string) {
         await this.noteSearchBox.fill(noteTitle);

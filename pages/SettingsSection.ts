@@ -1,4 +1,5 @@
 import BasePage from "./BasePage";
+import {Page} from "@playwright/test";
 
 export enum SettingsTabs {
     SETTINGS = 'Settings',
@@ -21,6 +22,10 @@ export default class SettingsSection extends BasePage {
     private sortBySelect = this.page.getByTestId('sort-by-dropdown');
     private importBackupButton = '[aria-label="Import backup"]';
 
+
+    constructor(protected page: Page) {
+        super(page);
+    }
 
     public async toggleDarkMode() {
         await this.darkModeToggle.click();

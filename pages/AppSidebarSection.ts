@@ -1,5 +1,5 @@
 import BasePage from "./BasePage";
-import {expect} from "@playwright/test";
+import {expect, Page} from "@playwright/test";
 
 
 export enum SidebarSectionsEnum {
@@ -19,6 +19,11 @@ export default class AppSidebarSection extends BasePage {
     private noteList = this.page.locator('[data-testid*="note-list-item-"]')
     private categoryList = '[class="category-list-name"]';
     private categories = this.page.getByTestId('category-list-div');
+
+
+    constructor(protected page: Page) {
+        super(page);
+    }
 
 
     public async chooseSection(option: SidebarSectionsEnum) {

@@ -1,4 +1,5 @@
 import BasePage from "./BasePage";
+import {Page} from "@playwright/test";
 
 export enum EditorMode {
     EDIT = 'Edit',
@@ -9,6 +10,11 @@ export class NoteEditorSection extends BasePage {
     private newNoteButton = this.page.locator('[data-testid="sidebar-action-create-new-note"]');
     private textEditorBody = this.page.locator('.CodeMirror');
     private previewer = this.page.locator('.previewer');
+
+
+    constructor(protected page: Page) {
+        super(page);
+    }
 
     public async createNewNote(text: string) {
         await this.newNoteButton.click();

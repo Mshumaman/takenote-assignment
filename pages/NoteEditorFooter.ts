@@ -1,5 +1,5 @@
 import BasePage from "./BasePage";
-import {expect} from "@playwright/test";
+import {expect, Page} from "@playwright/test";
 
 export enum FooterButtonsSelectors {
     PREVIEW_MODE = 'Preview note',
@@ -23,6 +23,10 @@ export default class NoteEditorFooter extends BasePage {
     private editorModeLayout = this.page.locator('[class="react-codemirror2 editor mousetrap"]')
 
 
+    constructor(protected page: Page) {
+        super(page);
+    }
+    
     public async selectOptionFromFooter(option: FooterButtonsSelectors) {
         await this.selectFromMultipleChoice(this.footerButton, option);
     }
