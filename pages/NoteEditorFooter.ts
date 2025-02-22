@@ -15,7 +15,7 @@ export enum FooterButtonsSelectors {
 
 export default class NoteEditorFooter extends BasePage {
 
-    private footerButton = '[class*="note-menu-bar-button"]'
+    private footerButton = this.page.locator('[class*="note-menu-bar-button"]')
     private previewButton = this.page.getByTestId('preview-mode');
     private lastSyncDate = this.page.getByTestId('last-synced-notification-date')
     private darkMode = this.page.locator('.dark')

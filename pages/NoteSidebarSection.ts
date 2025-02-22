@@ -5,7 +5,7 @@ import {NoteContextMenuActions} from "../types/UiEnums";
 
 export default class NoteSidebarSection extends BasePage {
     private noteSearchBox = this.page.getByTestId('note-search');
-    private noteTitles = '[data-testid*="note-title-"]'
+    private noteTitles = this.page.locator('[data-testid*="note-title-"]')
     private notesTruncateText = '[class="truncate-text"]'
 
     constructor(protected page: Page) {
@@ -18,7 +18,7 @@ export default class NoteSidebarSection extends BasePage {
     }
 
     public async chooseNoteContextAction(noteTitle: string, action: NoteContextMenuActions) {
-        await this.selectFromMultipleChoice(`${this.noteTitles} [class="truncate-text"]`, noteTitle, true)
+        await this.selectFromMultipleChoice(this.noteTitles.locator(this.notesTruncateText), noteTitle, true)
         await this.page.getByTestId(action).click()
         ;
     }
@@ -28,8 +28,7 @@ export default class NoteSidebarSection extends BasePage {
     }
 
     public async validateNoteCount(expectedCount: number) {
-        let noteTilesLocator = this.page.locator(this.noteTitles);
-        await this.validateItemCount(noteTilesLocator, expectedCount);
+        await this.validateItemCount(this.noteTitles, expectedCount);
     }
 
     public async validateOrderOfNotes(notes: string[]) {

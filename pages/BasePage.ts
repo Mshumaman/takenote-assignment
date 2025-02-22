@@ -22,9 +22,9 @@ export default class BasePage {
 
     }
 
-    public async selectFromMultipleChoice(element: string, value: string, rightClick: boolean = false) {
+    public async selectFromMultipleChoice(element: Locator, value: string, rightClick: boolean = false) {
         try {
-            const options = await this.page.locator(element).all();
+            const options = await element.all();
             if (options.length === 0) {
                 throw new Error(`No options found for selector: '${element}'`);
             }
@@ -52,11 +52,11 @@ export default class BasePage {
         await expect(element).toContainText(expectedText);
     }
 
-    public async validateItemExist(selector: string, item: string) {
-        const options = await this.page.locator(selector).all();
+    public async validateItemExist(locator: Locator, item: string) {
+        const options = await locator.all();
 
         if (options.length === 0) {
-            throw new Error(`No elements found for selector: '${selector}'`);
+            throw new Error(`No elements found for locator: '${locator}'`);
         }
 
         for (let option of options) {
@@ -68,7 +68,7 @@ export default class BasePage {
             }
         }
 
-        throw new Error(`Item '${item}' not found in selector: '${selector}'`);
+        throw new Error(`Item '${item}' not found in selector: '${locator}'`);
     }
 
     public async validateItemCount(element: Locator, expectedCount: number) {

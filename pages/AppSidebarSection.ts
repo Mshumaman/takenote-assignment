@@ -11,7 +11,7 @@ export default class AppSidebarSection extends BasePage {
     private renameCategory = this.page.getByTestId('category-options-rename');
     private deleteCategoryLocator = this.page.getByTestId('category-option-delete-permanently');
     private noteList = this.page.locator('[data-testid*="note-list-item-"]')
-    private categoryList = '[class="category-list-name"]';
+    private categoryList = this.page.locator('[class="category-list-name"]');
     private categories = this.page.getByTestId('category-list-div');
 
 
@@ -48,7 +48,8 @@ export default class AppSidebarSection extends BasePage {
     }
 
     public async validateCategoryCount(categoryName: string, expectedCount: number) {
-        const categoryCount = await this.page.locator(this.categoryList, {hasText: categoryName}).count();
+        // const categoryCount = await this.page.locator(this.categoryList, {hasText: categoryName}).count();
+        const categoryCount = await this.categoryList.filter({hasText: categoryName}).count();
         expect(categoryCount).toBe(expectedCount);
     }
 
@@ -58,15 +59,13 @@ export default class AppSidebarSection extends BasePage {
 
     public async dragNoteToCategory(noteTitle: string, categoryName: string) {
         const note = this.noteList.filter({hasText: noteTitle});
-        const categoryListLocator = this.page.locator(this.categoryList);
-        const category = categoryListLocator.filter({hasText: categoryName});
+        const category = this.categoryList.filter({hasText: categoryName});
         await note.dragTo(category);
     }
 
     public async sortCategoriesByDragAndDrop(fromCategory: string, toCategory: string) {
-        const categoryListLocator = this.page.locator(this.categoryList);
-        const originCategory = categoryListLocator.filter({hasText: fromCategory});
-        const targetCategory = categoryListLocator.filter({hasText: toCategory});
+        const originCategory = this.categoryList.filter({hasText: fromCategory});
+        const targetCategory = this.categoryList.filter({hasText: toCategory});
 
         const box = (await targetCategory.boundingBox())!;
         await originCategory.hover();
@@ -80,14 +79,13 @@ export default class AppSidebarSection extends BasePage {
     }
 
     public async navigateToCategory(categoryName: string) {
-        const categoryListLocator = this.page.locator(this.categoryList);
-        await categoryListLocator.filter({hasText: categoryName}).click();
+        await this.categoryList.filter({hasText: categoryName}).click();
     }
 
     public async validateOrderOfCategories(expectedCategories: string[]) {
         const categoriesLength = expectedCategories.length;
-        await this.page.locator(this.categoryList).nth(categoriesLength - 1).waitFor()
-        const categoryElements = await this.page.locator(this.categoryList).all();
+        await this.categoryList.nth(categoriesLength - 1).waitFor()
+        const categoryElements = await this.categoryList.all();
 
         const extractedCategories = await Promise.all(
             categoryElements.map(async (element) => {
