@@ -12,7 +12,6 @@ test.describe('Testing predefined data using storageState', {tag: '@uiAutomation
     test('Validate predefined data', async ({noteSidebarSection, appSidebarSection, page}) => {
 
         await test.step('Navigate to TakeNote Application', async () => {
-            await page.setViewportSize({width: 1440, height: 900});
             await noteSidebarSection.loadApplication();
         });
 
@@ -29,7 +28,7 @@ test.describe('Testing predefined data using storageState', {tag: '@uiAutomation
         });
 
         await test.step('Validate predefined notes exist in Favorites', async () => {
-            await appSidebarSection.navigateTo(SidebarSectionsEnum.FAVORITES);
+            await appSidebarSection.chooseSection(SidebarSectionsEnum.FAVORITES);
             await noteSidebarSection.validateNoteInList(notes[0]);
         });
     });

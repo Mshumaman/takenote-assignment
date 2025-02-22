@@ -21,7 +21,7 @@ export default class AppSidebarSection extends BasePage {
     private categories = this.page.getByTestId('category-list-div');
 
 
-    public async navigateTo(option: SidebarSectionsEnum) {
+    public async chooseSection(option: SidebarSectionsEnum) {
         await this.page.getByTestId(option).click();
     }
 

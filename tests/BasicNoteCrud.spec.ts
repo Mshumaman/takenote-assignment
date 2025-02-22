@@ -10,7 +10,6 @@ test.describe('Basic add edit and delete scenario', {tag: '@uiAutomation'}, () =
 
     test.beforeEach(async ({basePage, page}) => {
         await test.step('Navigate to TakeNote Application', async () => {
-            await page.setViewportSize({width: 1440, height: 900});
             await basePage.loadApplication();
         });
     });
@@ -39,7 +38,7 @@ test.describe('Basic add edit and delete scenario', {tag: '@uiAutomation'}, () =
         await test.step('Delete content and validate note moved to trash', async () => {
             await noteSidebarSection.searchAndSelectNote(editedNote);
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.DELETE);
-            await appSidebarSection.navigateTo(SidebarSectionsEnum.TRASH);
+            await appSidebarSection.chooseSection(SidebarSectionsEnum.TRASH);
             await noteSidebarSection.validateNoteInList(editedNote);
         });
     });
@@ -57,7 +56,7 @@ test.describe('Basic add edit and delete scenario', {tag: '@uiAutomation'}, () =
 
         await test.step('Add note to Favorites and validate', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.ADD_TO_FAVORITES);
-            await appSidebarSection.navigateTo(SidebarSectionsEnum.FAVORITES);
+            await appSidebarSection.chooseSection(SidebarSectionsEnum.FAVORITES);
             await noteSidebarSection.validateNoteInList("Test Note");
         });
 
@@ -66,7 +65,7 @@ test.describe('Basic add edit and delete scenario', {tag: '@uiAutomation'}, () =
         });
 
         await test.step('Validate note is removed from Favorites', async () => {
-            await appSidebarSection.navigateTo(SidebarSectionsEnum.FAVORITES);
+            await appSidebarSection.chooseSection(SidebarSectionsEnum.FAVORITES);
             await noteSidebarSection.validateNoteCount(0);
 
         })

@@ -11,15 +11,12 @@ export enum FooterButtonsSelectors {
     SYNC = 'Sync notes',
     THEMES = 'Themes',
     SETTINGS = 'Settings',
-
-
 }
 
 export default class NoteEditorFooter extends BasePage {
 
     private footerButton = 'span.sr-only'
     private previewButton = this.page.getByTestId('preview-mode');
-    private lastSyncDate = this.page.locator('last-synced-notification-date')
     private darkMode = this.page.locator('.dark')
     private previewModeLayout = this.page.locator('[class="previewer previewer_direction-ltr"]')
     private editorModeLayout = this.page.locator('[class="react-codemirror2 editor mousetrap"]')
@@ -42,7 +39,6 @@ export default class NoteEditorFooter extends BasePage {
     }
 
     public async validateDarkThemeByScreenshot() {
-        // await this.darkMode.screenshot({ animations: 'disabled', path: 'assets/darkMode.png' , mask:[this.lastSyncDate]});
         await expect(this.darkMode).toHaveScreenshot('assets/darkMode.png', {maxDiffPixelRatio: 0.03});
     }
 

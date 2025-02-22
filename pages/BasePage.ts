@@ -2,7 +2,7 @@ import {expect, Locator, Page, test} from "@playwright/test";
 
 export default class BasePage {
 
-    constructor(public page: Page) {
+    constructor(protected page: Page) {
     }
 
     public async loadApplication(url: string = "https://takenote.dev/app") {
@@ -51,7 +51,6 @@ export default class BasePage {
         }
     }
 
-
     public async validateTextContent(element: Locator, expectedText: string) {
         await expect(element).toContainText(expectedText);
     }
@@ -67,7 +66,7 @@ export default class BasePage {
             const rowText = await option.innerText();
 
             if (rowText.includes(item)) {
-                expect(rowText).toContain(item); // Only validate if the item is found
+                expect(rowText).toContain(item);
                 return;
             }
         }

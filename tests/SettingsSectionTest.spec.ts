@@ -14,7 +14,6 @@ test.describe('Test suite of settings section', {tag: '@uiAutomation'}, () => {
 
     test.beforeEach(async ({basePage, page}) => {
         await test.step('Load TakeNote Application and navigate to settings', async () => {
-            await page.setViewportSize({width: 1440, height: 900});
             await basePage.loadApplication();
         });
     });
