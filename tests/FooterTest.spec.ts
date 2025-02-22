@@ -11,7 +11,7 @@ test.describe('Functional tests of footers buttons', {tag: '@uiAutomation'}, () 
 
     });
 
-    test('Add edit and delete categories', async ({noteEditorFooter}) => {
+    test('Change Theme to dark mode and validate', async ({noteEditorFooter}) => {
         await test.step('change to dark mode and validate by class', async () => {
             await noteEditorFooter.selectOptionFromFooter(FooterButtonsSelectors.THEMES);
             await noteEditorFooter.validateTheme(true);
