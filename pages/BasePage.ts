@@ -7,8 +7,8 @@ export default class BasePage {
     }
 
     public async loadApplication(url: string = AppConfig.BASE_URL) {
-            await this.page.goto(url);
-            await this.page.waitForLoadState('networkidle');
+        await this.page.goto(url);
+        await this.page.waitForLoadState('networkidle');
     }
 
     public async clearFieldAndTypeText(locator: Locator, text: string) {
@@ -104,5 +104,11 @@ export default class BasePage {
             .trim(); // Trim extra spaces
     }
 
-
+    public async pressShortcut(key: string, modifiers: string = 'Control+Alt') {
+        try {
+            await this.page.keyboard.press(`${modifiers}+${key}`);
+        } catch (error) {
+            throw new Error(`Failed to press keyboard shortcut ${modifiers}+${key}: ${error}`);
+        }
+    }
 }

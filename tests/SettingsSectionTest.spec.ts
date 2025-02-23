@@ -10,7 +10,7 @@ test.describe('Settings Section Functional Tests', { tag: ['@sanity', '@regressi
     const importedNoteTitle = testData.importedNoteTitle;
     const notesBackupPath = './assets/importNote.json'
 
-    test.beforeEach(async ({basePage, page}) => {
+    test.beforeEach(async ({basePage}) => {
         await test.step('Load TakeNote Application and navigate to settings', async () => {
             await basePage.loadApplication();
         });

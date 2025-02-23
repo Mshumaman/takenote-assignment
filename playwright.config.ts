@@ -7,7 +7,7 @@ export default defineConfig({
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 1 : 0,
     reporter: [['html', {open: 'never'}],
-        ['junit', {outputFile: 'results.xml'}]],
+        ['junit', {outputFile: './reports/results.xml'}]],
 
     use: {
         viewport: {width: 50, height: 50},

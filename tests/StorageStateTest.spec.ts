@@ -8,7 +8,7 @@ test.describe('Predefined Data Verification with StorageState', { tag: ['@sanity
     const notes = testData.notes
     const category = testData.category
 
-    test('should display and validate predefined notes, categories, and favorites', async ({ noteSidebarSection, appSidebarSection, page }) => {
+    test('should display and validate predefined notes, categories, and favorites', async ({ noteSidebarSection, appSidebarSection}) => {
 
         await test.step('open the TakeNote application', async () => {
             await noteSidebarSection.loadApplication();
