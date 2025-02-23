@@ -24,14 +24,14 @@ npm install
 
 ### Playwright E2E Tests
 
-The project uses Playwright for end-to-end testing. Here are the available commands:
+The project uses Playwright for end-to-end testing. All tests are designed to run on both Chrome and Firefox browsers, ensuring cross-browser compatibility. Here are the available commands:
 
 1. Run tests in headed mode (one browser):
 ```bash
 npm run oneBrowserHeaded
 ```
 
-2. Run all tests in headless mode:
+2. Run all tests in headless mode (both Chrome and Firefox):
 ```bash
 npx playwright test
 ```
@@ -45,6 +45,8 @@ npx playwright test --debug
 ```bash
 npx playwright show-report
 ```
+
+The test report will show execution results for both browsers, allowing you to verify cross-browser compatibility of all features.
 
 ### Load Tests (Artillery)
 
