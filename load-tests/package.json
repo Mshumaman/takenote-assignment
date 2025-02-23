@@ -1,0 +1,8 @@
+{
+  "name": "takenote-load-tests",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@faker-js/faker": "^9.5.0"
+  }
+} 

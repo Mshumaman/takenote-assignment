@@ -48,11 +48,11 @@ npx playwright show-report
 
 ### Load Tests (Artillery)
 
-The project includes Artillery load tests located in the `load-tests` directory.
+The project includes Artillery load tests located in the `load-tests` directory. Artillery tests have their own package.json configuration to avoid conflicts with ESLint module settings.
 
 1. Run load tests:
 ```bash
-npx artillery run load-tests/artillery.yml
+npm run artillery
 ```
 
 2. View the test report:
@@ -61,28 +61,17 @@ npx artillery run load-tests/artillery.yml
 
 ### ESLint
 
-The project uses ESLint with Playwright plugin for code quality.
+The project uses ESLint with Playwright plugin for code quality:
 
-**Important Note:** To use ESLint with the current configuration, you need to temporarily add `"type": "module"` to your package.json. However, please note that this setting conflicts with Artillery execution, so remember to remove it when running load tests.
-
-1. Add to package.json:
-```json
-{
-  "type": "module"
-}
-```
-
-2. Run ESLint:
+1. Run ESLint:
 ```bash
-npx eslint tests/**/*.ts 
+npm run lint
 ```
 
-3. Fix auto-fixable issues:
+2. Fix auto-fixable issues:
 ```bash
-npx eslint . --fix
+npm run lint:fix
 ```
-
-4. Remember to remove the `"type": "module"` setting before running Artillery tests.
 
 ## Project Structure
 
@@ -113,4 +102,4 @@ npx playwright show-report
 
 ## CI/CD
 
-The project includes GitHub Actions workflows in the `.github` directory for automated testing. You can view the test execution history and results in the [GitHub Actions dashboard](https://github.com/Mshumaman/takenote-assignment/actions). 
+The project includes GitHub Actions workflows in the `.github` directory for automated testing. You can view the test execution history and results in the [GitHub Actions dashboard](https://github.com/Mshumaman/takenote-assignment/actions).

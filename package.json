@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
-    "oneBrowserHeaded": "npx playwright test --workers=1 --headed"
+    "oneBrowserHeaded": "npx playwright test --workers=1 --headed",
+    "lint": "npx eslint tests/**/*.ts",
+    "lint:fix": "npx eslint tests/**/*.ts --fix",
+    "artillery": "cd load-tests && npx artillery run artillery.yml"
   },
   "devDependencies": {
     "@playwright/test": "^1.50.1",
