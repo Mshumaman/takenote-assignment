@@ -18,7 +18,7 @@ export default defineConfig({
         },
         actionTimeout: 30000,
         launchOptions: {
-            slowMo: 50,
+            slowMo: 250,
         }
     },
     projects: [

@@ -26,24 +26,24 @@ npm install
 
 The project uses Playwright for end-to-end testing. All tests are designed to run on both Chrome and Firefox browsers, ensuring cross-browser compatibility. Here are the available commands:
 
-1. Run tests in headed mode (one browser):
+1. Run tests in headed mode (single worker):
 ```bash
-npm run oneBrowserHeaded
+npm run test:headed
 ```
 
-2. Run all tests in headless mode (both Chrome and Firefox):
+2. Run tests in headless mode with single worker:
+```bash
+npm run test:headless-1worker
+```
+
+3. Run all tests in headless mode (parallel execution):
 ```bash
 npx playwright test
 ```
 
-3. Run tests in debug mode:
+4. Run tests in debug mode:
 ```bash
 npx playwright test --debug
-```
-
-4. Generate and view HTML test report:
-```bash
-npx playwright show-report
 ```
 
 The test report will show execution results for both browsers, allowing you to verify cross-browser compatibility of all features.
@@ -101,6 +101,8 @@ npx playwright show-report
 ```
 
 ![Playwright Test Report](assets/screenshot-of-report-for-readme.png)
+
+The report provides a detailed view of test execution across both Chrome and Firefox browsers, including test durations, screenshots, and any failures.
 
 ## CI/CD
 
